@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WebBlox - 3D Roblox Sandbox & Obby</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Three.js CDN for pure 3D in browser -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+    <!-- Top Navigation Bar -->
+    <div id="robloxTopBar">
+        <div class="top-left">
+            <span class="logo">WebBlox</span>
+            <span class="place-title">Super Fun Obby & Creative Build</span>
+        </div>
+        <div class="top-right">
+            <button id="soundToggle" class="top-btn" title="Toggle Sound">🔊 Sound</button>
+            <button id="respawnBtn" class="top-btn" title="Reset Character">🔄 Reset</button>
+            <div class="coins-badge">🪙 <span id="coinsCount">0</span> BloxCoins</div>
+        </div>
+    </div>
+
+    <!-- 3D Viewport Canvas Container -->
+    <div id="canvas-container"></div>
+
+    <!-- Crosshair -->
+    <div id="crosshair">+</div>
+
+    <!-- UI Overlay / HUD -->
+    <div id="hud">
+        <!-- Controls & Mode Legend -->
+        <div class="hud-panel controls-card">
+            <h4>🎮 Controls</h4>
+            <p><b>W, A, S, D</b>: Walk</p>
+            <p><b>SPACE</b>: Jump</p>
+            <p><b>SHIFT</b>: Sprint</p>
+            <p><b>Right Click + Drag</b>: Orbit Camera</p>
+            <p><b>Left Click</b>: Place Block / Action</p>
+            <p><b>Q / Delete</b>: Remove Targeted Block</p>
+        </div>
+
+        <!-- Hotbar / Inventory Bar -->
+        <div class="hotbar-container">
+            <div class="hotbar" id="hotbar">
+                <button class="slot active" data-color="0xe74c3c" data-key="1">
+                    <span class="hotbar-color" style="background:#e74c3c;"></span>
+                    <span class="key-num">1</span>
+                </button>
+                <button class="slot" data-color="0x3498db" data-key="2">
+                    <span class="hotbar-color" style="background:#3498db;"></span>
+                    <span class="key-num">2</span>
+                </button>
+                <button class="slot" data-color="0x2ecc71" data-key="3">
+                    <span class="hotbar-color" style="background:#2ecc71;"></span>
+                    <span class="key-num">3</span>
+                </button>
+                <button class="slot" data-color="0xf1c40f" data-key="4">
+                    <span class="hotbar-color" style="background:#f1c40f;"></span>
+                    <span class="key-num">4</span>
+                </button>
+                <button class="slot" data-color="0x9b59b6" data-key="5">
+                    <span class="hotbar-color" style="background:#9b59b6;"></span>
+                    <span class="key-num">5</span>
+                </button>
+                <button class="slot" data-color="0x34495e" data-key="6">
+                    <span class="hotbar-color" style="background:#34495e;"></span>
+                    <span class="key-num">6</span>
+                </button>
+                <button class="slot" data-color="0xffffff" data-key="7">
+                    <span class="hotbar-color" style="background:#ffffff;"></span>
+                    <span class="key-num">7</span>
+                </button>
+            </div>
+        </div>
+
+        <!-- Chat / Notifications -->
+        <div id="chatBox">
+            <div id="chatMessages">
+                <div class="chat-msg system">Welcome to WebBlox! Complete the Obby course or build whatever you want!</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Win / Notification Banner -->
+    <div id="banner" class="banner hidden">
+        <h2 id="bannerTitle">STAGE COMPLETE!</h2>
+        <p id="bannerDesc">You earned BloxCoins!</p>
+    </div>
+
+    <script src="game.js"></script>
+</body>
+</html>
